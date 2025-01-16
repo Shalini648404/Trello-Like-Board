@@ -1,38 +1,514 @@
-.App {
+
+/* General Reset */
+/*body, h1, h2, h3, p, ul, li, button, input {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f5f7;
+}
+
+
+.app {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.header button {
+  font-size: 1rem;
+}
+
+/* Board Styling 
+.board {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.list-container {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 10px;
+}
+
+/* List Styling 
+.list {
+  width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0079bf;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px 8px 0 0;
+}
+
+.list-header h3 {
+  cursor: pointer;
+}
+
+.list-header .delete-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.card-container {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.add-card-input,
+.add-list-input {
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.add-card,
+.add-list {
+  background-color: #0079bf;
+  color: white;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-card:hover,
+.add-list:hover {
+  background-color: #005f93;
+}
+
+.add-card-input input,
+.add-list-input input {
+  width: calc(100% - 60px);
+  padding: 6px;
+  margin-right: 10px;
+}
+
+.add-card-input button,
+.add-list-input button {
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.add-card-input button:hover,
+.add-list-input button:hover {
+  background-color: #005f93;
+}
+
+/* Card Styling 
+.card {
+  background-color: white;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #f3f3f3;
+}
+
+.card .delete-icon {
+  font-size: 1.2rem;
+  color: #e53935;
+  cursor: pointer;
+}
+
+/* Modal Styling 
+.card-modal {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-modal input,
+.card-modal textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.card-modal button {
+  align-self: flex-end;
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.card-modal button:hover {
+  background-color: #005f93;
+}
+*/
+
+/* src/App.css */
+
+.app {
+  font-family: Arial, sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  background-color: #0079bf;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.board {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.list-container {
+  display: flex;
+  gap: 20px;
+}
+
+.list {
+  background-color: #ebecf0;
+  border-radius: 5px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header h3 {
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.list-header h3:hover {
+  color: #0079bf;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-title-container {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-title-container input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.edit-title-container button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-title-container button:first-of-type {
+  background-color: #0079bf;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.edit-title-container button:last-of-type {
+  background-color: #ddd;
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-container {
+  margin-top: 10px;
 }
+
+.card {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card:hover {
+  background-color: #f4f5f7;
+}
+
+.add-card-input,
+.add-list-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.add-card-input input,
+.add-list-input input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.add-card-input button,
+.add-list-input button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.add-card-input button:first-of-type,
+.add-list-input button:first-of-type {
+  background-color: #0079bf;
+  color: white;
+}
+
+.add-card-input button:last-of-type,
+.add-list-input button:last-of-type {
+  background-color: #ddd;
+  color: black;
+}
+
+.add-card {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.add-card:hover {
+  background-color: #005fa3;
+}
+
+.add-list {
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-list:hover {
+  background-color: #005fa3;
+}
+
+.add-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-modal .MuiTextField-root {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.card-modal button {
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.card-modal button:hover {
+  background-color: #005fa3;
+}
+
+
+/* src/App.css */
+
+.list {
+  background-color: #ebecf0;
+  border-radius: 5px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: auto; 
+}
+
+.list-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start; 
+}
+
+.card-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.add-card-input {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+}
+
+.add-card-input input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.add-card-input .button-container {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 10px;
+}
+
+.add-card-input button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.add-card-input button:first-of-type {
+  background-color: #0079bf;
+  color: white;
+}
+
+.add-card-input button:last-of-type {
+  background-color: #ddd;
+  color: black;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.edit-title-container input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.edit-title-container .button-container {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 10px;
+}
+
+.edit-title-container button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-title-container button:first-of-type {
+  background-color: #0079bf;
+  color: white;
+}
+
+.edit-title-container button:last-of-type {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
