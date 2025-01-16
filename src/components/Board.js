@@ -6,7 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 const Board = ({ board, setBoard }) => {
   const [isAddingList, setIsAddingList] = useState(false);
   const [newListTitle, setNewListTitle] = useState("");
-
+//Handling Add list
   const handleAddList = () => {
     if (newListTitle.trim() !== "") {
       const newList = {
