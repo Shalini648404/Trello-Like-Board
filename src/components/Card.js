@@ -1,37 +1,3 @@
-/*import React from "react";
-import { Draggable } from "react-beautiful-dnd";
-import { AiFillDelete } from "react-icons/ai";
-
-const Card = ({ card, index, list, board, setBoard }) => {
-  const deleteCard = () => {
-    const updatedList = board.map((l) =>
-      l.id === list.id
-        ? { ...l, cards: l.cards.filter((c) => c.id !== card.id) }
-        : l
-    );
-    setBoard(updatedList);
-  };
-
-  return (
-    <Draggable draggableId={card.id} index={index}>
-      {(provided) => (
-        <div
-          className="card"
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-        >
-          <p>{card.title}</p>
-          <AiFillDelete onClick={deleteCard} className="delete-icon" />
-        </div>
-      )}
-    </Draggable>
-  );
-};
-
-export default Card;*/
-
-// src/components/Card.js
 import React, { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { AiFillDelete } from "react-icons/ai";
